@@ -1,0 +1,24 @@
+{
+  "name": "react-spa",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katsiaryna-homyakova/react-spa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katsiaryna-homyakova/react-spa/issues"
+  },
+  "homepage": "https://github.com/katsiaryna-homyakova/react-spa#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  }
+}
