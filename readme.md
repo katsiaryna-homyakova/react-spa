@@ -1,16 +1,14 @@
 
 # React SPA application
 
-
-
 ### Installing
 
-To run the applicaton:
+To run the applicaton in dev mode:
 ```
-npm start
+npm run dev
 ```
 
-To apply changes in the js files run babel watch:
+To build html/js/css for prod, run:
 ```
-npx babel --watch src --out-dir ./dist --presets react-app/prod 
+npm run prod
 ```
