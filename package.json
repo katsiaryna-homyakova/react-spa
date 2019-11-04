@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "webpack-dev-server --mode=development",
-    "prod": "SET NODE_ENV=production&& webpack --mode=production",
+    "prod": "webpack --mode=production",
     "test": "echo \"Tests will be here\""
   },
   "repository": {
