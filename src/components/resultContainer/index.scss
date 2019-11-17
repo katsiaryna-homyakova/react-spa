@@ -1,0 +1,15 @@
+@import 'Styles/constants.scss';
+
+.result-section {
+    padding: 4rem;
+    background-color: $black;
+}
+
+.result-navigarion {
+    height: 4rem;
+    margin: 2rem 0 0 4rem;
+
+    .base-button {
+        background-color: $dark-grey;
+    }
+}

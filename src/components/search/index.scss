@@ -1,0 +1,11 @@
+@import 'Styles/constants.scss';
+.search {
+    input {
+        background: rgba(85, 85, 85, 0.5);
+        margin: 5px 5px;
+        border: transparent;
+        padding: 0.375rem 0.75rem;
+        border-radius: 2px;
+        color: $font-light;
+    }
+}
