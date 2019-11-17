@@ -5,13 +5,9 @@ import Title from "../title";
 import Search from "../search";
 import "./index.scss";
 
-export default class SearchContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const SearchContainer = () =>(
 
-  render() {
-    return (
+
       <div className="search-container-wrapper">
         <div className="search-container-blur"></div>
         <div className="search-container-content">
@@ -24,6 +20,6 @@ export default class SearchContainer extends React.Component {
          
         </div>
       </div>
-    );
-  }
-}
+ 
+);
+export default SearchContainer;

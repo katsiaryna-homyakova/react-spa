@@ -26,7 +26,6 @@ export default class Search extends React.Component {
         ", filter: " +
         this.state.activeFilter
     );
-    event.preventDefault();
   };
 
   render() {
