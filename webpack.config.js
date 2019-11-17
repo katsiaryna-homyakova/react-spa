@@ -21,11 +21,28 @@ module.exports = (env, options) => {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: ["babel-loader"]
-        }
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            'style-loader',
+            'css-loader',
+            'resolve-url-loader',
+            'sass-loader',
+          ],
+        },
+        {
+          test: /\.(jpg|png)$/,
+          use: [ 'url-loader']
+       }
       ]
     },
     resolve: {
-      extensions: [".js"]
+      extensions: ['.js', '.jsx', '.css'],
+      mainFiles: ['index'],
+      alias: {
+        Styles: path.resolve(__dirname, "src/styles/")
+      }
     },
     output: {
       filename: "bundle.js",

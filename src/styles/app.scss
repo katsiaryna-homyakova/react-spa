@@ -1,0 +1,14 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import 'constants';
+
+body {
+  background-color: $background;
+
+  h1 {
+      color: $font-light;
+      text-transform: uppercase;
+      font-family: $font-base;
+      letter-spacing: 2px;
+      font-size: 2.2rem;
+  }
+}

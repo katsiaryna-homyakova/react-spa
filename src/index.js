@@ -2,16 +2,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';   
 
-import LikeButton from "./js/likeThis.js";
-import WelcomeMessage from "./js/welcomeMessage.js";
-import PercentageStat from "./js/pureComponent.js";
+import SearchContainer from "./components/searchSection";
+import ResultsContainer from "./components/resultContainer";
+import ErrorBoundary from "./components/errorBoundry";
+import './styles/app.scss'
+import Logo from "./components/logo";
 
 let div = React.createElement(
   "div",
   null,
-  <WelcomeMessage welcomMessage={"Hello, world!!!"}/>,
-  <LikeButton/>,
-  React.createElement(PercentageStat, { label: "Percentage", score: 0.5 })
+<ErrorBoundary>
+ <SearchContainer/>
+
+<ResultsContainer />
+<Logo/>
+</ErrorBoundary>
+
+  
+
+  
 );
 
 ReactDOM.render(div, document.querySelector("#root"));
