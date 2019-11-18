@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.scss";
 const FilmCard = ({ imgPath, title, releaseDate, genre }) => (
-  <div className="film-card col-4">
+  <div className="film-card">
     <img className="card-img-top" src={imgPath} alt={title} />
     <div className="card-body row">
       <p className="col">

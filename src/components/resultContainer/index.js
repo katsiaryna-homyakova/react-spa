@@ -70,39 +70,12 @@ export default class FilmResults extends React.Component {
       return;
     }
   };
-  formatData = () => {
-    let formatedArray = [];
-    let curIndex = -1;
-
-    for (let index = 0; index < this.state.resultData.length; index++) {
-      if (index % 3 == 0) {
-        formatedArray.push([]);
-        curIndex++;
-      }
-      formatedArray[curIndex].push(this.state.resultData[index]);
-    }
-    return formatedArray;
-  };
-
   handleChangeFilter = value => {
  
     this.setState({ activeFilter: value });
     this.sortData(this.state.resultData, value);
   };
 
-  renderRow = array => {
-    const elments = array.map((element, index) => (
-      <FilmCard
-        imgPath={element.imgPath}
-        title={element.title}
-        genre={element.genre}
-        releaseDate={element.releaseDate}
-        key={index}
-      />
-    ));
-
-    return elments;
-  };
   render() {
     return (
       <>
@@ -114,12 +87,19 @@ export default class FilmResults extends React.Component {
             activeByDefault={this.state.activeFilter}
           />
         </div>
-        <div className="result-section">
-          {this.formatData().map((item, key) => (
-            <div className="row" key={key}>
-              {this.renderRow(item)}
+        <div className="result-section row">
+      
+          {this.state.resultData.map((item, key) => (
+            <div className="col-4" key={key}>
+                <FilmCard
+                imgPath={item.imgPath}
+                title={item.title}
+                genre={item.genre}
+                releaseDate={item.releaseDate}
+              />
             </div>
           ))}
+      
         </div>
       </>
     );
