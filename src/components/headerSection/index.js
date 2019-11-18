@@ -14,10 +14,11 @@ const HeaderSection = (props) =>(
         <div className="header-container-content">
           <div className="logo-head">
             <Logo />
-          </div>
-          <div className="navigation">
+            <div className="navigation">
           <NavigationItem/>
           </div>
+          </div>
+         
           <div className="content-wrapper">
               {props.children}
           </div>

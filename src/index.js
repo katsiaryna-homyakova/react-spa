@@ -10,8 +10,14 @@ import ErrorBoundary from "./components/errorBoundry";
 import "./styles/app.scss";
 import Footer from "./components/footer";
 
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
+
 
 const states = ['index', 'film-description'];
+//choose from states
 let curState ='index';
 
 let curFilm =  {
