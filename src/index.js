@@ -5,7 +5,7 @@ import SearchContainer from "./components/searchSection";
 import ResultsContainer from "./components/resultContainer";
 import ErrorBoundary from "./components/errorBoundry";
 import "./styles/app.scss";
-import Logo from "./components/logo";
+import Footer from "./components/footer";
 
 let div = React.createElement(
   "div",
@@ -14,7 +14,7 @@ let div = React.createElement(
     <SearchContainer />
 
     <ResultsContainer />
-    <Logo />
+    <Footer />
   </ErrorBoundary>
 );
 

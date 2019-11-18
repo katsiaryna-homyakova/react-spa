@@ -1,7 +1,8 @@
 @import "Styles/constants.scss";
 .filter {
 
-    .title {
+    margin-top: 1rem;
+    .filter-title {
         letter-spacing: 4px;
         color: $font-light;
         text-transform: uppercase;

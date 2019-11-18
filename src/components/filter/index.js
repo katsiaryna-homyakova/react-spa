@@ -16,7 +16,7 @@ export default class Filter extends React.Component {
   render() {
     return (
       <div className="filter">
-        <span className="title">{this.props.title}</span>
+        <span className="filter-title">{this.props.title}</span>
 
         {this.props.filters.map((item, key) => (
           <Button

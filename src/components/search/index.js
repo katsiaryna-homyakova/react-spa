@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./../button";
 import Filter from "../filter";
+import Title from "../title";
 import "./index.scss";
 export default class Search extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ export default class Search extends React.Component {
   render() {
     return (
       <div className="search">
+        <Title text={"FIND YOUR MOVIE"} />
         <div className="input-group">
           <input
             type="text"

@@ -7,9 +7,15 @@
 
 .result-navigarion {
     height: 4rem;
-    margin: 2rem 0 0 4rem;
+    margin: 0.5rem;
 
     .base-button {
         background-color: $dark-grey;
+    }
+
+    .filter {
+        position: absolute;
+    width: 50%;
+    right: 0px;
     }
 }

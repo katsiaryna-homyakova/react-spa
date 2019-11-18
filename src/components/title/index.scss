@@ -1,0 +1,10 @@
+@import 'Styles/constants.scss';
+
+.title {
+  color: $font-light;
+  text-transform: uppercase;
+  font-family: $font-base;
+  letter-spacing: 2px;
+  font-size: 2.2rem;
+  margin: 1rem 0;
+}
