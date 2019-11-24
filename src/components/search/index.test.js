@@ -1,10 +1,10 @@
 import React from "react";
 import Search from "./index";
-import { shallow, mount } from "enzyme";
+import { render, shallow, mount } from "enzyme";
 
 describe("Search component", () => {
   it("renders correctly", () => {
-    const component = shallow(<Search />);
+    const component = render(<Search />);
     expect(component).toMatchSnapshot();
   });
 

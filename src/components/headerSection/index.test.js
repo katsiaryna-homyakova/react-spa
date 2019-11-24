@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "./index";
-import { shallow } from "enzyme";
+import { render } from "enzyme";
 
 describe("Header Section component", () => {
   it("renders correctly", () => {
-    const component = shallow(<Header />);
+    const component = render(<Header />);
     expect(component).toMatchSnapshot();
   });
 });

@@ -1,10 +1,10 @@
 import React from "react";
 import Footer from "./index";
-import { shallow } from "enzyme";
+import { render } from "enzyme";
 
 describe("Footer component", () => {
   it("renders correctly", () => {
-    const component = shallow(<Footer />);
+    const component = render(<Footer />);
     expect(component).toMatchSnapshot();
   });
 });

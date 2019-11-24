@@ -1,10 +1,10 @@
 import React from "react";
 import ResultContainer from "./index";
-import { shallow, mount } from "enzyme";
+import { render, mount } from "enzyme";
 
 describe("ResultContainer component", () => {
   it("renders correctly", () => {
-    const component = shallow(<ResultContainer />);
+    const component = render(<ResultContainer />);
     expect(component).toMatchSnapshot();
   });
 
