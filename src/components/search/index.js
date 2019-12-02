@@ -1,15 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
 import Button from "./../button";
 import Filter from "../filter";
 import Title from "../title";
 import "./index.scss";
-export default class Search extends React.Component {
+import { search } from "../../redux/actions";
+import retrieveMovies from "../../redux/actions.js";
+
+
+const mapStateToProps = state => {
+  return {
+       value: state.text,
+       activeFilter: state.filters
+  };
+  
+};
+
+ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: "", activeFilter: "title" };
     this.filters = [
       { id: "title", value: "Title" },
-      { id: "genre", value: "Genre" }
+      { id: "genres", value: "Genre" }
     ];
   }
 
@@ -18,15 +31,16 @@ export default class Search extends React.Component {
   };
   handleChangeFilter = value => {
     this.setState({ activeFilter: value });
+    // if (this.state.value) {
+    //   this.props.submitSearch( this.state.value , value);
+    //   this.props.fetchData('https://reactjs-cdp.herokuapp.com/movies');
+    // }
   };
 
-  submitSearch = event => {
-    alert(
-      "Search by: " +
-        this.state.value +
-        ", filter: " +
-        this.state.activeFilter
-    );
+  submitSearchEvent = event => {
+    this.props.submitSearch( this.state.value , this.state.activeFilter);
+    this.props.fetchData('https://reactjs-cdp.herokuapp.com/movies');
+
   };
 
   render() {
@@ -44,7 +58,7 @@ export default class Search extends React.Component {
           <Button
             text={"Search"}
             classes={"base-button pink"}
-            handleClick={this.submitSearch}
+            handleClick={this.submitSearchEvent}
             id="submitSearch"
           />
         </div>
@@ -58,3 +72,12 @@ export default class Search extends React.Component {
     );
   }
 }
+
+function mapDispatchToProps (dispatch) {
+  return {
+    submitSearch: (text, filter) => dispatch(search(text, filter)),
+    fetchData: (url) => dispatch(retrieveMovies(url))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
