@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.scss";
-const FilmCard = ({ imgPath, title, releaseDate, genre }) => (
+const FilmCard = ({ imgPath, title, releaseDate, genre, rating }) => (
   <div className="film-card">
     <img className="card-img-top" src={imgPath} alt={title} />
     <div className="card-body row">
@@ -10,6 +10,7 @@ const FilmCard = ({ imgPath, title, releaseDate, genre }) => (
       </p>
       <p className="col ">
         <span className="release-date">{releaseDate}</span>
+        <span className="rating">{rating? rating : "..."}</span>
       </p>
     </div>
   </div>

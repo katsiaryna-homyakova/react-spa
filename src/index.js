@@ -9,11 +9,16 @@ import ResultsContainer from "./components/resultContainer";
 import ErrorBoundary from "./components/errorBoundry";
 import "./styles/app.scss";
 import Footer from "./components/footer";
+import configureStore from './redux/store'
+
+import { Provider } from 'react-redux'
+
 
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
+
 
 
 const states = ['index', 'film-description'];
@@ -29,16 +34,16 @@ let curFilm =  {
   duration: 123,
   description: `Best of the best filn we've ever seen. 100% recommended to see. Enjoy!`
 }
-  
-let div = React.createElement(
-  "div",
-  null,
-  <ErrorBoundary>
 
-<HeaderSection>{curState === 'index'? <Search/> : curState === 'film-description' ? <FilmDescription {...curFilm}/> : null}</HeaderSection>
-    <ResultsContainer />
-    <Footer />
-  </ErrorBoundary>
-);
+const store = configureStore();
 
-ReactDOM.render(div, document.querySelector("#root"));
+ReactDOM.render(  <Provider store={store}>
+
+    <ErrorBoundary>
+
+  <HeaderSection>{curState === 'index'? <Search/> : curState === 'film-description' ? <FilmDescription {...curFilm}/> : null}</HeaderSection>
+      <ResultsContainer />
+      <Footer />
+    </ErrorBoundary>
+</Provider>,
+ document.querySelector("#root"));
