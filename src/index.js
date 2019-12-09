@@ -1,17 +1,44 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
+import HeaderSection from "./components/headerSection";
+import Search from "./components/search";
+import FilmDescription from "./components/filmDescription";
+import ResultsContainer from "./components/resultContainer";
+
+import ErrorBoundary from "./components/errorBoundry";
+import "./styles/app.scss";
+import Footer from "./components/footer";
+
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
+
+
+const states = ['index', 'film-description'];
+//choose from states
+let curState ='index';
+
+let curFilm =  {
+  imgPath: "src/images/header.jpg",
+  title: "First title",
+  genre: "Animation",
+  releaseDate: "1998",
+  rating: 10,
+  duration: 123,
+  description: `Best of the best filn we've ever seen. 100% recommended to see. Enjoy!`
+}
   
-import React from 'react';
-import ReactDOM from 'react-dom';   
-
-import LikeButton from "./js/likeThis.js";
-import WelcomeMessage from "./js/welcomeMessage.js";
-import PercentageStat from "./js/pureComponent.js";
-
 let div = React.createElement(
   "div",
   null,
-  <WelcomeMessage welcomMessage={"Hello, world!!!"}/>,
-  <LikeButton/>,
-  React.createElement(PercentageStat, { label: "Percentage", score: 0.5 })
+  <ErrorBoundary>
+
+<HeaderSection>{curState === 'index'? <Search/> : curState === 'film-description' ? <FilmDescription {...curFilm}/> : null}</HeaderSection>
+    <ResultsContainer />
+    <Footer />
+  </ErrorBoundary>
 );
 
 ReactDOM.render(div, document.querySelector("#root"));
