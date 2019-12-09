@@ -6,9 +6,12 @@ export default class Filter extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { active: props.activeByDefault };
+    this.state = { active: props.activeFilter };
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ active: props.activeFilter })
+  }
   makeActive = (key, event) => {
     this.setState({ active: key });
     this.props.handleChangeFilter(key)
