@@ -5,16 +5,12 @@ import Filter from "../filter";
 import Title from "../title";
 import "./index.scss";
 import { search } from "../../redux/actions";
+import { modifyCurSearchFilter } from "../../redux/actions";
+import { modifyCurSearchText } from "../../redux/actions";
 import retrieveMovies from "../../redux/actions.js";
+//import retrieveMovies from "../../redux/actions.js";
 
 
-const mapStateToProps = state => {
-  return {
-       value: state.text,
-       activeFilter: state.filters
-  };
-  
-};
 
  class Search extends React.Component {
   constructor(props) {
@@ -27,7 +23,7 @@ const mapStateToProps = state => {
   }
 
   handleChangeText = event => {
-    this.setState({ value: event.target.value });
+    this.props.handleChangeText(event.target.value );
   };
   handleChangeFilter = value => {
     this.setState({ activeFilter: value });
@@ -38,8 +34,9 @@ const mapStateToProps = state => {
   };
 
   submitSearchEvent = event => {
-    this.props.submitSearch( this.state.value , this.state.activeFilter);
+    this.props.submitSearch( );
     this.props.fetchData('https://reactjs-cdp.herokuapp.com/movies');
+   // 
 
   };
 
@@ -50,7 +47,7 @@ const mapStateToProps = state => {
         <div className="input-group">
           <input
             type="text"
-            value={this.state.value}
+            value={this.props.value}
             onChange={this.handleChangeText}
             placeholder="Search"
           />
@@ -64,9 +61,9 @@ const mapStateToProps = state => {
         </div>
         <Filter
           title={"Search by"}
-          handleChangeFilter={this.handleChangeFilter}
+          handleChangeFilter={this.props.handleChangeFilter}
           filters={this.filters}
-          activeByDefault={this.state.activeFilter}
+          activeFilter={this.props.activeFilter}
         />
       </div>
     );
@@ -75,9 +72,20 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps (dispatch) {
   return {
-    submitSearch: (text, filter) => dispatch(search(text, filter)),
-    fetchData: (url) => dispatch(retrieveMovies(url))
+    submitSearch: () => dispatch(search()),
+    fetchData: (url) => dispatch(retrieveMovies(url)),
+    handleChangeFilter: (value) => dispatch(modifyCurSearchFilter(value)),
+    handleChangeText: (value) => dispatch(modifyCurSearchText(value))
   }
 }
+
+
+const mapStateToProps = state => {
+  return {
+       value: state.curSearch.text,
+       activeFilter: state.curSearch.filters
+  };
+  
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

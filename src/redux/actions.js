@@ -2,16 +2,12 @@ import { SEARCH,  SORT_BY_DATE } from "./actionTypes";
 
 
 
-export const search = (text, filter)=> {
-    console.log({
-      text: text,
-      filter: filter
-    });
+export const search = ()=> {
+
   return {
   type: SEARCH,
   payload: {
-    text: text,
-    filter: filter
+   
   }
 }};
 
@@ -46,8 +42,29 @@ export function itemsFetchDataSuccess(items) {
       }
   };
 }
+
+export function modifyCurSearchFilter(value) {
+ // console.log( convertResponse(items.data));
+  return {
+      type: 'MODIFY_CUR_SEARCH_FILTER',
+      payload: {
+        filters: value
+      }
+  };
+}
+
+export function modifyCurSearchText(value) {
+  // console.log( convertResponse(items.data));
+   return {
+       type: 'MODIFY_CUR_SEARCH_TEXT',
+       payload: {
+         text: value
+       }
+   };
+ }
 export default function retrieveMovies(url) {
   return (dispatch, getState) => {
+  //  dispatch(search());
      // dispatch(itemsIsLoading(true));
      const { searchBy, sortResultsBy } = getState();
      let urlParameters ={};

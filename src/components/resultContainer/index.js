@@ -111,7 +111,7 @@ class FilmResults extends React.Component {
             title={"Sort by"}
             handleChangeFilter={this.handleChangeFilter}
             filters={this.filters}
-            activeByDefault={this.state.activeFilter}
+            activeFilter={this.props.sortResultsBy}
           />
         </div>
         <div className="result-section row">
@@ -144,7 +144,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    resultsData: state.resultsData
+    resultsData: state.resultsData, 
+    sortResultsBy: state.sortResultsBy
   };
 };
 
