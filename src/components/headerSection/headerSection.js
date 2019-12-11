@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "../logo";
-import NavigationItem from "../navigationItem";
+import Logo from "../logo/logo";
+import NavigationItem from "../navigationItem/navigationItem";
 
 
 
-import "./index.scss";
+import "./headerSection.scss";
 
 const HeaderSection = (props) =>(
 

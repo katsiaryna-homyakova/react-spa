@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './index.scss'
+import './button.scss'
 
 const Button = ({text, classes, handleClick, id}) => (
     

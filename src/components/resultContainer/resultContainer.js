@@ -1,12 +1,12 @@
-import React from "react";
+import React, {Component} from "react";
 import { connect } from "react-redux";
-import FilmCard from "../filmCard";
-import Filter from "../filter";
+import FilmCard from "../filmCard/filmCard";
+import Filter from "../filter/filter";
 import retrieveMovies from "../../redux/actions.js";
 import {setSorting} from "../../redux/actions.js";
-import "./index.scss";
+import "./resultContainer.scss";
 
-class FilmResults extends React.Component {
+class FilmResults extends Component {
   constructor(props) {
     super(props);
     this.state = { activeFilter: "releaseDate", resultData: [] };

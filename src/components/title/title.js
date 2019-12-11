@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.scss';
+import './title.scss';
 
 const Title = ({text}) => (
     <div className="title">{text}</div>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.scss";
+import "./filmDescription.scss";
 const FilmDescription = ({ imgPath, title, rating,  duration, releaseDate, genre, description}) => (
   <div className="film-description row">
 

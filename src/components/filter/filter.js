@@ -1,8 +1,8 @@
-import React from "react";
-import Button from "./../button";
-import "./index.scss";
+import React, {Component} from "react";
+import Button from "../button/button";
+import "./filter.scss";
 
-export default class Filter extends React.Component {
+export default class Filter extends Component {
 
   constructor(props) {
     super(props);
