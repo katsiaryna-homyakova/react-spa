@@ -39,7 +39,6 @@ module.exports = (env, options) => {
     },
     resolve: {
       extensions: ['.js', '.jsx', '.css'],
-      mainFiles: ['index'],
       alias: {
         Styles: path.resolve(__dirname, "src/styles/")
       }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.scss";
+import "./filmCard.scss";
 const FilmCard = ({ imgPath, title, releaseDate, genre, rating }) => (
   <div className="film-card">
     <img className="card-img-top" src={imgPath} alt={title} />

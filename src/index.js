@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import HeaderSection from "./components/headerSection";
-import Search from "./components/search";
-import FilmDescription from "./components/filmDescription";
-import ResultsContainer from "./components/resultContainer";
+import HeaderSection from "./components/headerSection/headerSection";
+import Search from "./components/search/search";
+import FilmDescription from "./components/filmDescription/filmDescription";
+import ResultsContainer from "./components/resultContainer/resultContainer";
 
-import ErrorBoundary from "./components/errorBoundry";
-import "./styles/app.scss";
-import Footer from "./components/footer";
+import ErrorBoundary from "./components/errorBoundry/errorBoundry";
+import "./styles/app.scss"; 
+import Footer from "./components/footer/footer";
 import configureStore from './redux/store'
 
 import { Provider } from 'react-redux'

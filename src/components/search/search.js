@@ -1,18 +1,19 @@
-import React from "react";
+import React, {Component} from "react";
 import { connect } from "react-redux";
-import Button from "./../button";
-import Filter from "../filter";
-import Title from "../title";
-import "./index.scss";
+import Button from "../button/button";
+import Filter from "../filter/filter";
+import Title from "../title/title";
+import "./search.scss";
 import { search } from "../../redux/actions";
 import { modifyCurSearchFilter } from "../../redux/actions";
 import { modifyCurSearchText } from "../../redux/actions";
 import retrieveMovies from "../../redux/actions.js";
+import * as Constants from "../../constants"
 //import retrieveMovies from "../../redux/actions.js";
 
 
 
- class Search extends React.Component {
+ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = { value: "", activeFilter: "title" };
@@ -43,7 +44,7 @@ import retrieveMovies from "../../redux/actions.js";
   render() {
     return (
       <div className="search">
-        <Title text={"FIND YOUR MOVIE"} />
+        <Title text={Constants.FIND_MOVIE_TEXT} />
         <div className="input-group">
           <input
             type="text"
