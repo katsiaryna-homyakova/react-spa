@@ -1,26 +1,25 @@
-import React from "react";
-import ErrorBoundry from "./index";
-import { mount, render } from "enzyme";
+import React from 'react';
+import { mount, render } from 'enzyme';
+import ErrorBoundry from './errorBoundry';
 
-describe("error boundry component", () => {
+describe('error boundry component', () => {
   const Something = () => <h1>Some mocked child</h1>;
-  it("renders correctly", () => {
+  it('renders correctly', () => {
     const component = render(
       <ErrorBoundry>
         <Something />
-      </ErrorBoundry>
+      </ErrorBoundry>,
     );
     expect(component).toMatchSnapshot();
   });
 
-  it("renders children when passed in", () => {
-   
+  it('renders children when passed in', () => {
     const wrapper = mount(
       <ErrorBoundry>
         <Something />
-      </ErrorBoundry>
+      </ErrorBoundry>,
     );
-    const error = new Error("test");
+    const error = new Error('test');
 
     wrapper.find(Something).simulateError(error);
     expect(wrapper.contains(<h1>Something went wrong.</h1>)).toEqual(true);

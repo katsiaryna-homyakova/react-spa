@@ -1,92 +1,95 @@
-import React, {Component} from "react";
-import { connect } from "react-redux";
-import Button from "../button/button";
-import Filter from "../filter/filter";
-import Title from "../title/title";
-import "./search.scss";
-import { search } from "../../redux/actions";
-import { modifyCurSearchFilter } from "../../redux/actions";
-import { modifyCurSearchText } from "../../redux/actions";
-import retrieveMovies from "../../redux/actions.js";
-import * as Constants from "../../constants"
-//import retrieveMovies from "../../redux/actions.js";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Button from '../button/button';
+import Filter from '../filter/filter';
+import Title from '../title/title';
+import './search.scss';
+import {
+  search, modifyCurSearchFilter, modifyCurSearchText, retrieveMovies,
+} from '../../redux/actions';
 
+import * as Constants from '../../constants';
 
-
- class Search extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", activeFilter: "title" };
     this.filters = [
-      { id: "title", value: "Title" },
-      { id: "genres", value: "Genre" }
+      { id: 'title', value: 'Title' },
+      { id: 'genres', value: 'Genre' },
     ];
   }
 
-  handleChangeText = event => {
-    this.props.handleChangeText(event.target.value );
-  };
-  handleChangeFilter = value => {
-    this.setState({ activeFilter: value });
-    // if (this.state.value) {
-    //   this.props.submitSearch( this.state.value , value);
-    //   this.props.fetchData('https://reactjs-cdp.herokuapp.com/movies');
-    // }
+  handleChangeText = (event) => {
+    const { handleChangeText } = this.props;
+    handleChangeText(event.target.value);
   };
 
-  submitSearchEvent = event => {
-    this.props.submitSearch( );
-    this.props.fetchData('https://reactjs-cdp.herokuapp.com/movies');
-   // 
-
+  submitSearchEvent = () => {
+    const { submitSearch, fetchData } = this.props;
+    submitSearch();
+    fetchData('https://reactjs-cdp.herokuapp.com/movies');
+    //
   };
 
   render() {
+    const { value, handleChangeFilter, activeFilter } = this.props;
     return (
       <div className="search">
         <Title text={Constants.FIND_MOVIE_TEXT} />
         <div className="input-group">
           <input
             type="text"
-            value={this.props.value}
+            value={value}
             onChange={this.handleChangeText}
             placeholder="Search"
           />
 
           <Button
-            text={"Search"}
-            classes={"base-button pink"}
+            text="Search"
+            classes="base-button pink"
             handleClick={this.submitSearchEvent}
             id="submitSearch"
           />
         </div>
         <Filter
-          title={"Search by"}
-          handleChangeFilter={this.props.handleChangeFilter}
+          title="Search by"
+          handleChangeFilter={handleChangeFilter}
           filters={this.filters}
-          activeFilter={this.props.activeFilter}
+          activeFilter={activeFilter}
         />
       </div>
     );
   }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     submitSearch: () => dispatch(search()),
-    fetchData: (url) => dispatch(retrieveMovies(url)),
+    fetchData: () => dispatch(retrieveMovies()),
     handleChangeFilter: (value) => dispatch(modifyCurSearchFilter(value)),
-    handleChangeText: (value) => dispatch(modifyCurSearchText(value))
-  }
+    handleChangeText: (value) => dispatch(modifyCurSearchText(value)),
+  };
 }
 
 
-const mapStateToProps = state => {
-  return {
-       value: state.curSearch.text,
-       activeFilter: state.curSearch.filters
-  };
-  
+const mapStateToProps = (state) => ({
+  value: state.curSearch.text,
+  activeFilter: state.curSearch.filters,
+});
+
+Search.propTypes = {
+  handleChangeText: PropTypes.func.isRequired,
+  submitSearch: PropTypes.func.isRequired,
+  fetchData: PropTypes.func.isRequired,
+  handleChangeFilter: PropTypes.func.isRequired,
+  activeFilter: PropTypes.string.isRequired,
+  value: PropTypes.string,
+
+};
+
+Search.defaultProps = {
+  value: '',
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

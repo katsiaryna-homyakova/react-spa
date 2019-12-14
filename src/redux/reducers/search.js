@@ -1,5 +1,5 @@
-//import { ADD_TODO, TOGGLE_TODO } from "../actionTypes";
-import { SEARCH,  SORT_BY_DATE } from "../actionTypes";
+// import { ADD_TODO, TOGGLE_TODO } from "../actionTypes";
+// import { SEARCH, SORT_BY_DATE } from '../actionTypes';
 
 // const initialState = {
 //   resultsData: [],
@@ -18,7 +18,7 @@ import { SEARCH,  SORT_BY_DATE } from "../actionTypes";
 //             filter: filter
 //         }
 
-      
+
 //       //  resultsData: state.resultsData
 //       };
 //     };
@@ -35,7 +35,7 @@ import { SEARCH,  SORT_BY_DATE } from "../actionTypes";
 //         sortResultsBy: action.payload.sortResultsBy
 //       }
 //     }
-   
+
 //     default:
 //       return state;
 //   }

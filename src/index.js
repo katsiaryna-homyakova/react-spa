@@ -1,49 +1,63 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import HeaderSection from "./components/headerSection/headerSection";
-import Search from "./components/search/search";
-import FilmDescription from "./components/filmDescription/filmDescription";
-import ResultsContainer from "./components/resultContainer/resultContainer";
+import { Provider } from 'react-redux';
+import HeaderSection from './components/headerSection/headerSection';
+import Search from './components/search/search';
+import FilmDescription from './components/filmDescription/filmDescription';
+import ResultsContainer from './components/resultContainer/resultContainer';
 
-import ErrorBoundary from "./components/errorBoundry/errorBoundry";
-import "./styles/app.scss"; 
-import Footer from "./components/footer/footer";
-import configureStore from './redux/store'
-
-import { Provider } from 'react-redux'
-
-
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
+import ErrorBoundary from './components/errorBoundry/errorBoundry';
+import './styles/app.scss';
+import Footer from './components/footer/footer';
+import configureStore from './redux/store';
 
 
+import '@fortawesome/fontawesome-free/js/fontawesome';
+import '@fortawesome/fontawesome-free/js/solid';
+import '@fortawesome/fontawesome-free/js/regular';
+import '@fortawesome/fontawesome-free/js/brands';
 
-const states = ['index', 'film-description'];
-//choose from states
-let curState ='index';
 
-let curFilm =  {
-  imgPath: "src/images/header.jpg",
-  title: "First title",
-  genre: "Animation",
-  releaseDate: "1998",
+const states = ['index', 'filmDescription'];
+// choose from states
+const curState = states[1];
+
+const curFilm = {
+  imgPath: 'src/images/header.jpg',
+  title: 'First title',
+  genre: 'Animation',
+  releaseDate: '1998',
   rating: 10,
   duration: 123,
-  description: `Best of the best filn we've ever seen. 100% recommended to see. Enjoy!`
-}
-
+  description: 'Best of the best filn we\'ve ever seen. 100% recommended to see. Enjoy!',
+};
+const {
+  imgPath, title, genre, releaseDate, rating, duration, description,
+} = curFilm;
+const dataDisplay = {
+  index: <Search />,
+  filmDescription: <FilmDescription
+    imgPath={imgPath}
+    title={title}
+    genre={genre}
+    releaseDate={releaseDate}
+    duration={duration}
+    rating={rating}
+    description={description}
+  />,
+};
 const store = configureStore();
 
-ReactDOM.render(  <Provider store={store}>
+ReactDOM.render(
+  <Provider store={store}>
 
     <ErrorBoundary>
 
-  <HeaderSection>{curState === 'index'? <Search/> : curState === 'film-description' ? <FilmDescription {...curFilm}/> : null}</HeaderSection>
+      <HeaderSection>{dataDisplay[curState]}</HeaderSection>
       <ResultsContainer />
       <Footer />
     </ErrorBoundary>
-</Provider>,
- document.querySelector("#root"));
+  </Provider>,
+  document.querySelector('#root'),
+);
