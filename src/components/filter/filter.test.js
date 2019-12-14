@@ -1,34 +1,35 @@
-import React from "react";
-import Filter from "./index";
-import { mount } from "enzyme";
+import React from 'react';
+import { mount } from 'enzyme';
+import Filter from './filter';
 
-describe("filter component", () => {
-  let mockClick = jest.fn(), component;
+describe('filter component', () => {
+  const mockClick = jest.fn(); let
+    component;
 
   beforeAll(() => {
     const filters = [
-      { id: "releaseDate", value: "Release date" },
-      { id: "genre", value: "Genre" }
+      { id: 'releaseDate', value: 'Release date' },
+      { id: 'genre', value: 'Genre' },
     ];
     component = mount(
       <Filter
-        title={"Sort by"}
+        title="Sort by"
         filters={filters}
         handleChangeFilter={mockClick}
-        activeByDefault={"releaseDate"}
-      />
+        activeByDefault="releaseDate"
+      />,
     );
   });
 
-  it("renders correctly", () => {
+  it('renders correctly', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it("handle click", () => {
+  it('handle click', () => {
     component
-      .find("button")
+      .find('button')
       .at(1)
-      .simulate("click");
+      .simulate('click');
     expect(mockClick).toHaveBeenCalledTimes(1);
     expect(component).toMatchSnapshot();
   });

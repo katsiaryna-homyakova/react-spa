@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -11,6 +12,7 @@
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -24,7 +26,7 @@
     "rules": {
         "linebreak-style": 0,
         "semi": ["error", "always"],
-        "quotes": ["error", "double"],
+        "quotes": ["error", "single"],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }

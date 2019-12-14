@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'enzyme';
-import Footer from './footer';
+import Logo from './logo';
 
-describe('Footer component', () => {
+describe('Logo Section component', () => {
   it('renders correctly', () => {
-    const component = render(<Footer />);
+    const component = render(<Logo />);
     expect(component).toMatchSnapshot();
   });
 });
