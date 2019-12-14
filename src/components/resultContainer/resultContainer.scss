@@ -1,24 +1,24 @@
 @import 'Styles/constants.scss';
 
-.result-section.row{
-    padding: 4rem;
-    background-color: $black;
-    width:100%;
-    margin-left: auto;
-    margin-right:auto;
+.result-section.row {
+  padding: 4rem;
+  background-color: $black;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .result-navigarion {
-    height: 4rem;
-    margin: 0.5rem;
+  height: 4rem;
+  margin: 0.5rem;
 
-    .base-button {
-        background-color: $dark-grey;
-    }
+  .base-button {
+    background-color: $dark-grey;
+  }
 
-    .filter {
-        position: absolute;
+  .filter {
+    position: absolute;
     width: 50%;
-    right: 0px;
-    }
+    right: 0;
+  }
 }
