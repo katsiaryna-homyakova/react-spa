@@ -1,12 +1,7 @@
-// export default function rootReducer () {}
+import {
+  SEARCH, ITEMS_FETCH_DATA_SUCCESS, SET_SORTING, MODIFY_CUR_SEARCH_TEXT, MODIFY_CUR_SEARCH_FILTER,
+} from '../actionTypes';
 
-// import { combineReducers } from 'redux';
-// import searchReducer from './search';
-import { SEARCH } from '../actionTypes';
-// import { stat } from "fs";
-// import todos from "./todos";
-
-// export default combineReducers({ searchReducer});
 const initialCurSearch = { text: '', filters: 'title' };
 
 const initialState = {
@@ -19,20 +14,15 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case SEARCH: {
-      // const { text, filter } = action.payload;
       return {
         ...state,
         searchBy: {
           text: state.curSearch.text,
           filter: state.curSearch.filters,
         },
-
-
-        //  resultsData: state.resultsData
       };
     }
-    case 'ITEMS_FETCH_DATA_SUCCESS': {
-      //   console.log(`reducer: ${action.payload.resultsData}`);
+    case ITEMS_FETCH_DATA_SUCCESS: {
       return {
         ...state,
         resultsData: action.payload.resultsData,
@@ -42,19 +32,19 @@ export default function (state = initialState, action) {
         },
       };
     }
-    case 'SET_SORTING': {
+    case SET_SORTING: {
       return {
         ...state,
         sortResultsBy: action.payload.sortResultsBy,
       };
     }
-    case 'MODIFY_CUR_SEARCH_TEXT': {
+    case MODIFY_CUR_SEARCH_TEXT: {
       return {
         ...state,
         curSearch: { text: action.payload.text, filters: state.curSearch.filters },
       };
     }
-    case 'MODIFY_CUR_SEARCH_FILTER': {
+    case MODIFY_CUR_SEARCH_FILTER: {
       return {
         ...state,
         curSearch: { text: state.curSearch.text, filters: action.payload.filters },

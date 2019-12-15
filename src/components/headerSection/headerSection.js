@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Logo from '../logo/logo';
-import NavigationItem from '../navigationItem/navigationItem';
-
-
+import Logo from 'Components/logo/logo';
+import NavigationItem from 'Components/navigationItem/navigationItem';
 import './headerSection.scss';
 
 const HeaderSection = (props) => {

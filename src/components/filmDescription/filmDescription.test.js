@@ -9,10 +9,10 @@ describe('film description component', () => {
       <FilmDescription
         imgPath="somePath"
         title="some title"
-        rating="some rating"
+        rating={5.25}
         releaseDate="some date"
         genre="some genre"
-        duration="123"
+        duration={123}
         description="some description"
       />,
     );

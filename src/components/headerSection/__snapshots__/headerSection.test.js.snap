@@ -245,7 +245,15 @@ initialize {
                 "attribs": Object {
                   "class": "content-wrapper",
                 },
-                "children": Array [],
+                "children": Array [
+                  Object {
+                    "data": "Some child is here",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
@@ -273,7 +281,15 @@ initialize {
               "attribs": Object {
                 "class": "content-wrapper",
               },
-              "children": Array [],
+              "children": Array [
+                Object {
+                  "data": "Some child is here",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
@@ -774,7 +790,15 @@ initialize {
               "attribs": Object {
                 "class": "content-wrapper",
               },
-              "children": Array [],
+              "children": Array [
+                Object {
+                  "data": "Some child is here",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
@@ -802,7 +826,15 @@ initialize {
             "attribs": Object {
               "class": "content-wrapper",
             },
-            "children": Array [],
+            "children": Array [
+              Object {
+                "data": "Some child is here",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,

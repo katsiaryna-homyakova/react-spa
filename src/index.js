@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
 import HeaderSection from './components/headerSection/headerSection';
-import Search from './components/search/search';
+import ConnectedSearch from './components/search/search';
 import FilmDescription from './components/filmDescription/filmDescription';
-import ResultsContainer from './components/resultContainer/resultContainer';
+import ConnectedResultsContainer from './components/resultContainer/resultContainer';
 
 import ErrorBoundary from './components/errorBoundry/errorBoundry';
 import './styles/app.scss';
@@ -21,7 +21,7 @@ import '@fortawesome/fontawesome-free/js/brands';
 
 const states = ['index', 'filmDescription'];
 // choose from states
-const curState = states[1];
+const curState = states[0];
 
 const curFilm = {
   imgPath: 'src/images/header.jpg',
@@ -36,7 +36,7 @@ const {
   imgPath, title, genre, releaseDate, rating, duration, description,
 } = curFilm;
 const dataDisplay = {
-  index: <Search />,
+  index: <ConnectedSearch />,
   filmDescription: <FilmDescription
     imgPath={imgPath}
     title={title}
@@ -55,7 +55,7 @@ ReactDOM.render(
     <ErrorBoundary>
 
       <HeaderSection>{dataDisplay[curState]}</HeaderSection>
-      <ResultsContainer />
+      <ConnectedResultsContainer />
       <Footer />
     </ErrorBoundary>
   </Provider>,

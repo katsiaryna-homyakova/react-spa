@@ -5,7 +5,8 @@ import Button from './button';
 
 describe('button component', () => {
   it('renders correctly', () => {
-    const component = render(<Button text="Some button" classes="some classes" handleClick="someEvent" />);
+    const handleClick = () => { };
+    const component = render(<Button text="Some button" classes="some classes" handleClick={handleClick} />);
     expect(component).toMatchSnapshot();
   });
 });

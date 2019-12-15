@@ -40,7 +40,9 @@ module.exports = (env, options) => {
     resolve: {
       extensions: ['.js', '.jsx', '.css'],
       alias: {
-        Styles: path.resolve(__dirname, "src/styles/")
+        Styles: path.resolve(__dirname, "src/styles/"),
+        Components: path.resolve(__dirname, "src/components/"),
+        App: path.resolve(__dirname, "src/")
       }
     },
     output: {
