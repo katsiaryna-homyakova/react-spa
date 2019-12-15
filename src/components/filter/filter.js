@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../button/button';
+import Button from 'Components/button/button';
 import './filter.scss';
 
 
@@ -9,10 +9,6 @@ export default class Filter extends Component {
     super(props);
     this.state = { active: props.activeFilter };
   }
-
-  // componentWillReceiveProps(props) {
-  //   this.setState({ active: props.activeFilter });
-  // }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.activeFilter !== prevState.active) {

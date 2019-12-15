@@ -7,7 +7,6 @@ import * as Constants from '../constants';
 export const search = () => ({
   type: SEARCH,
   payload: {
-
   },
 });
 
@@ -31,7 +30,6 @@ function convertResponse(data) {
 }
 
 export function itemsFetchDataSuccess(items) {
-  // console.log(convertResponse(items.data));
   return {
     type: ITEMS_FETCH_DATA_SUCCESS,
     payload: {
@@ -41,7 +39,6 @@ export function itemsFetchDataSuccess(items) {
 }
 
 export function modifyCurSearchFilter(value) {
-  // console.log( convertResponse(items.data));
   return {
     type: MODIFY_CUR_SEARCH_FILTER,
     payload: {
@@ -51,7 +48,6 @@ export function modifyCurSearchFilter(value) {
 }
 
 export function modifyCurSearchText(value) {
-  // console.log( convertResponse(items.data));
   return {
     type: MODIFY_CUR_SEARCH_TEXT,
     payload: {
@@ -62,8 +58,6 @@ export function modifyCurSearchText(value) {
 export function retrieveMovies() {
   return (dispatch, getState) => {
     const url = Constants.MOVIES_URL;
-    //  dispatch(search());
-    // dispatch(itemsIsLoading(true));
     const { searchBy, sortResultsBy } = getState();
     const urlParameters = {};
     // search=The&searchBy=title
@@ -82,8 +76,6 @@ export function retrieveMovies() {
         if (!response.ok) {
           throw Error(response.statusText);
         }
-
-        //  dispatch(itemsIsLoading(false));
 
         return response;
       })

@@ -16,7 +16,7 @@ describe('filter component', () => {
         title="Sort by"
         filters={filters}
         handleChangeFilter={mockClick}
-        activeByDefault="releaseDate"
+        activeFilter="someFilter"
       />,
     );
   });

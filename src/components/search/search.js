@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Button from '../button/button';
-import Filter from '../filter/filter';
-import Title from '../title/title';
+import Button from 'Components/button/button';
+import Filter from 'Components/filter/filter';
+import Title from 'Components/title/title';
 import './search.scss';
 import {
   search, modifyCurSearchFilter, modifyCurSearchText, retrieveMovies,
-} from '../../redux/actions';
+} from 'App/redux/actions';
 
 import * as Constants from '../../constants';
 
-class Search extends Component {
+export class Search extends Component {
   constructor(props) {
     super(props);
     this.filters = [
@@ -28,8 +28,7 @@ class Search extends Component {
   submitSearchEvent = () => {
     const { submitSearch, fetchData } = this.props;
     submitSearch();
-    fetchData('https://reactjs-cdp.herokuapp.com/movies');
-    //
+    fetchData();
   };
 
   render() {

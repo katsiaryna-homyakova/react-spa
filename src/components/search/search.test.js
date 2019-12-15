@@ -1,25 +1,35 @@
 import React from 'react';
-import { render, shallow, mount } from 'enzyme';
-import Search from './search';
+import { shallow } from 'enzyme';
+import { Search } from './search';
+import Title from '../title/title';
+import Filter from '../filter/filter';
+import Button from '../button/button';
+
+const handleChangeText = jest.fn();
+const submitSearch = jest.fn();
+const fetchData = jest.fn();
+const handleChangeFilter = jest.fn();
+let component;
 
 describe('Search component', () => {
+  beforeEach(() => {
+    component = shallow(<Search
+      handleChangeText={handleChangeText}
+      submitSearch={submitSearch}
+      fetchData={fetchData}
+      handleChangeFilter={handleChangeFilter}
+      activeFilter="title"
+    />);
+  });
+
   it('renders correctly', () => {
-    const component = render(<Search />);
-    expect(component).toMatchSnapshot();
+    expect(component.find(Filter).length).toEqual(1);
+    expect(component.find(Title).length).toEqual(1);
+    expect(component.find(Button).length).toEqual(1);
   });
 
   it('handle input change', () => {
-    const component = shallow(<Search />);
     component.find('input').simulate('change', { target: { value: 'foo' } });
-    expect(component.state('value')).toEqual('foo');
-  });
-
-  it('handle filter change', () => {
-    const component = mount(<Search />);
-    component
-      .find('.filter button')
-      .at(1)
-      .simulate('click');
-    expect(component.state('activeFilter')).toEqual('genre');
+    expect(handleChangeText).toBeCalled();
   });
 });

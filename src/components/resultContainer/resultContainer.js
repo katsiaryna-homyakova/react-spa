@@ -7,7 +7,7 @@ import { retrieveMovies, setSorting } from '../../redux/actions';
 
 import './resultContainer.scss';
 
-class FilmResults extends Component {
+export class ResultsContainer extends Component {
   constructor(props) {
     super(props);
     this.filters = [
@@ -18,13 +18,13 @@ class FilmResults extends Component {
 
   componentDidMount() {
     const { fetchData } = this.props;
-    fetchData('https://reactjs-cdp.herokuapp.com/movies');
+    fetchData();
   }
 
   handleChangeFilter = (value) => {
     const { updateSorting, fetchData } = this.props;
     updateSorting(value);
-    fetchData('https://reactjs-cdp.herokuapp.com/movies');
+    fetchData();
   }
 
   render() {
@@ -62,7 +62,7 @@ class FilmResults extends Component {
   }
 }
 
-FilmResults.propTypes = {
+ResultsContainer.propTypes = {
   fetchData: PropTypes.func.isRequired,
   updateSorting: PropTypes.func.isRequired,
   sortResultsBy: PropTypes.string.isRequired,
@@ -75,7 +75,7 @@ FilmResults.propTypes = {
   })),
 };
 
-FilmResults.defaultProps = {
+ResultsContainer.defaultProps = {
   resultsData: null,
 };
 
@@ -89,4 +89,4 @@ const mapStateToProps = (state) => ({
   sortResultsBy: state.sortResultsBy,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilmResults);
+export default connect(mapStateToProps, mapDispatchToProps)(ResultsContainer);
