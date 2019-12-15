@@ -45,6 +45,7 @@ export default class Search extends React.Component {
             text={"Search"}
             classes={"base-button pink"}
             handleClick={this.submitSearch}
+            id="submitSearch"
           />
         </div>
         <Filter

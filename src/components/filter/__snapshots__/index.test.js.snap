@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filter component handle click 1`] = `ReactWrapper {}`;
+
+exports[`filter component renders correctly 1`] = `ReactWrapper {}`;
