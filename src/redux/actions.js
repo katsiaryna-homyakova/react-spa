@@ -1,5 +1,6 @@
 import {
-  SEARCH, ITEMS_FETCH_DATA_SUCCESS, MODIFY_CUR_SEARCH_FILTER, SET_SORTING, MODIFY_CUR_SEARCH_TEXT,
+  SEARCH, ITEMS_FETCH_DATA_SUCCESS, MODIFY_CUR_SEARCH_FILTER, SET_SORTING,
+  MODIFY_CUR_SEARCH_TEXT, ITEM_FETCH_BY_ID_SUCCESS,
 } from './actionTypes';
 import * as Constants from '../constants';
 
@@ -34,6 +35,26 @@ export function itemsFetchDataSuccess(items) {
     type: ITEMS_FETCH_DATA_SUCCESS,
     payload: {
       resultsData: convertResponse(items.data),
+    },
+  };
+}
+function convertResponseItem(item) {
+  return {
+    id: item.id,
+    imgPath: item.poster_path,
+    title: item.title,
+    genre: item.genres.join(' & '),
+    releaseDate: item.release_date,
+    rating: item.vote_average,
+    description: item.overview,
+    duration: item.runtime,
+  };
+}
+export function filmFetchedByIdSuccess(item) {
+  return {
+    type: ITEM_FETCH_BY_ID_SUCCESS,
+    payload: {
+      curFilm: convertResponseItem(item),
     },
   };
 }
@@ -81,6 +102,24 @@ export function retrieveMovies() {
       })
       .then((response) => response.json())
       .then((items) => dispatch(itemsFetchDataSuccess(items)))
+      .catch(() => 'error');
+  };
+}
+
+export function retrieveMovieById(id) {
+  return (dispatch) => {
+    const url = `${Constants.MOVIES_URL}/${id}`;
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+
+        return response;
+      })
+      .then((response) => response.json())
+      .then((item) => dispatch(filmFetchedByIdSuccess(item)))
       .catch(() => 'error');
   };
 }

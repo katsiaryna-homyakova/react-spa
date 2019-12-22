@@ -64,4 +64,9 @@
     border-width: 1px;
     padding: 3px;
   }
+
+  .image-cover {
+    max-height: 270px;
+    object-fit: contain;
+  }
 }

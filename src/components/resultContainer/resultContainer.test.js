@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { mount } from 'enzyme';
 import { ResultsContainer } from './resultContainer';
 import FilmCard from '../filmCard/filmCard';
@@ -10,14 +11,14 @@ describe('ResultContainer component', () => {
   const sortResultsBy = 'sortProp';
   const resultsData = [
     {
-      id: '1',
+      id: 1,
       imgPath: 'src/images/header.jpg',
       title: 'First title',
       genre: 'Animation',
       releaseDate: '1998',
     },
     {
-      id: '2',
+      id: 2,
       imgPath: 'src/images/header.jpg',
       title: 'Second title',
       genre: 'Comedy',
@@ -25,12 +26,16 @@ describe('ResultContainer component', () => {
     }];
 
   it('renders correctly', () => {
-    const wrapper = mount(<ResultsContainer
-      fetchData={fetchData}
-      updateSorting={updateSorting}
-      sortResultsBy={sortResultsBy}
-      resultsData={resultsData}
-    />);
+    const wrapper = mount(
+      <Router>
+        <ResultsContainer
+          fetchData={fetchData}
+          updateSorting={updateSorting}
+          sortResultsBy={sortResultsBy}
+          resultsData={resultsData}
+        />
+      </Router>,
+    );
     expect(wrapper.find(FilmCard).length).toEqual(2);
     expect(wrapper.find(Filter).length).toEqual(1);
   });

@@ -47,6 +47,7 @@ export class ResultsContainer extends Component {
           {resultsData.map((item) => (
             <div className="col-4" key={item.id}>
               <FilmCard
+                id={item.id}
                 imgPath={item.imgPath}
                 title={item.title}
                 genre={item.genre}
