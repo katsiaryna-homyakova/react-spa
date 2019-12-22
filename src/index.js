@@ -31,7 +31,7 @@ ReactDOM.render(
             <HeaderSection>
               <Switch>
                 <Route
-                  path={Constants.FILE_DESCRIPTION_PAGE}
+                  path={Constants.FILM_DESCRIPTION_PAGE}
                   render={(props) => (
                     <WrappedFilmDescription locaation={props.location} />
                   )}
