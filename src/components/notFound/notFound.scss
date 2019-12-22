@@ -1,0 +1,10 @@
+@import "Styles/constants.scss";
+
+.not-found {
+  margin: 60px;
+  color: $font-light;
+  font-family: $font-base;
+  letter-spacing: 2px;
+  font-weight: normal;
+  font-size: 20px;
+}

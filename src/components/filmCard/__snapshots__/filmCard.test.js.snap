@@ -9,12 +9,35 @@ initialize {
     "children": Array [
       Object {
         "attribs": Object {
-          "alt": "some title",
-          "class": "card-img-top",
-          "src": "somePath",
+          "href": "/film/123",
         },
-        "children": Array [],
-        "name": "img",
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "alt": "some title",
+              "class": "card-img-top",
+              "src": "somePath",
+            },
+            "children": Array [],
+            "name": "img",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "alt": undefined,
+              "class": undefined,
+              "src": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "alt": undefined,
+              "class": undefined,
+              "src": undefined,
+            },
+          },
+        ],
+        "name": "a",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
@@ -32,11 +55,30 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "some title",
+                      "attribs": Object {
+                        "href": "/film/123",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "some title",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "a",
+                      "namespace": "http://www.w3.org/1999/xhtml",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
-                      "type": "text",
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": undefined,
+                      },
                     },
                   ],
                   "name": "span",
@@ -100,11 +142,30 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "data": "some title",
+                        "attribs": Object {
+                          "href": "/film/123",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "some title",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
                         "next": null,
                         "parent": [Circular],
                         "prev": null,
-                        "type": "text",
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
                       },
                     ],
                     "name": "span",
@@ -385,11 +446,30 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "data": "some title",
+                        "attribs": Object {
+                          "href": "/film/123",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "some title",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
                         "next": null,
                         "parent": [Circular],
                         "prev": null,
-                        "type": "text",
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
                       },
                     ],
                     "name": "span",
@@ -453,11 +533,30 @@ initialize {
                       },
                       "children": Array [
                         Object {
-                          "data": "some title",
+                          "attribs": Object {
+                            "href": "/film/123",
+                          },
+                          "children": Array [
+                            Object {
+                              "data": "some title",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "text",
+                            },
+                          ],
+                          "name": "a",
+                          "namespace": "http://www.w3.org/1999/xhtml",
                           "next": null,
                           "parent": [Circular],
                           "prev": null,
-                          "type": "text",
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "href": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "href": undefined,
+                          },
                         },
                       ],
                       "name": "span",
@@ -521,14 +620,10 @@ initialize {
         "prev": null,
         "type": "tag",
         "x-attribsNamespace": Object {
-          "alt": undefined,
-          "class": undefined,
-          "src": undefined,
+          "href": undefined,
         },
         "x-attribsPrefix": Object {
-          "alt": undefined,
-          "class": undefined,
-          "src": undefined,
+          "href": undefined,
         },
       },
       Object {
@@ -547,11 +642,30 @@ initialize {
                 },
                 "children": Array [
                   Object {
-                    "data": "some title",
+                    "attribs": Object {
+                      "href": "/film/123",
+                    },
+                    "children": Array [
+                      Object {
+                        "data": "some title",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "a",
+                    "namespace": "http://www.w3.org/1999/xhtml",
                     "next": null,
                     "parent": [Circular],
                     "prev": null,
-                    "type": "text",
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "href": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "href": undefined,
+                    },
                   },
                 ],
                 "name": "span",
@@ -615,11 +729,30 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "some title",
+                      "attribs": Object {
+                        "href": "/film/123",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "some title",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "a",
+                      "namespace": "http://www.w3.org/1999/xhtml",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
-                      "type": "text",
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": undefined,
+                      },
                     },
                   ],
                   "name": "span",
@@ -900,11 +1033,30 @@ initialize {
                   },
                   "children": Array [
                     Object {
-                      "data": "some title",
+                      "attribs": Object {
+                        "href": "/film/123",
+                      },
+                      "children": Array [
+                        Object {
+                          "data": "some title",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "text",
+                        },
+                      ],
+                      "name": "a",
+                      "namespace": "http://www.w3.org/1999/xhtml",
                       "next": null,
                       "parent": [Circular],
                       "prev": null,
-                      "type": "text",
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "href": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "href": undefined,
+                      },
                     },
                   ],
                   "name": "span",
@@ -968,11 +1120,30 @@ initialize {
                     },
                     "children": Array [
                       Object {
-                        "data": "some title",
+                        "attribs": Object {
+                          "href": "/film/123",
+                        },
+                        "children": Array [
+                          Object {
+                            "data": "some title",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "text",
+                          },
+                        ],
+                        "name": "a",
+                        "namespace": "http://www.w3.org/1999/xhtml",
                         "next": null,
                         "parent": [Circular],
                         "prev": null,
-                        "type": "text",
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "href": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "href": undefined,
+                        },
                       },
                     ],
                     "name": "span",
@@ -1025,26 +1196,45 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "alt": "some title",
-            "class": "card-img-top",
-            "src": "somePath",
+            "href": "/film/123",
           },
-          "children": Array [],
-          "name": "img",
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "alt": "some title",
+                "class": "card-img-top",
+                "src": "somePath",
+              },
+              "children": Array [],
+              "name": "img",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "alt": undefined,
+                "class": undefined,
+                "src": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "alt": undefined,
+                "class": undefined,
+                "src": undefined,
+              },
+            },
+          ],
+          "name": "a",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": [Circular],
           "parent": [Circular],
           "prev": null,
           "type": "tag",
           "x-attribsNamespace": Object {
-            "alt": undefined,
-            "class": undefined,
-            "src": undefined,
+            "href": undefined,
           },
           "x-attribsPrefix": Object {
-            "alt": undefined,
-            "class": undefined,
-            "src": undefined,
+            "href": undefined,
           },
         },
         "type": "tag",

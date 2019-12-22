@@ -1,51 +1,95 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './filmDescription.scss';
 import PropTypes from 'prop-types';
+import {
+  withRouter,
+} from 'react-router-dom';
+import { retrieveMovieById } from '../../redux/actions';
 
-const FilmDescription = ({
-  imgPath, title, rating, duration, releaseDate, genre, description,
-}) => (
-  <div className="film-description row">
+export class FilmDescription extends Component {
+  componentDidMount() {
+    const { fetchData, id } = this.props;
+    fetchData(id);
+  }
 
-    <img className="image-cover col-3" src={imgPath} alt={title} />
-    <div className="col-9">
-      <p className="film-description-block-title">
-        <span className="film-description-title">{title}</span>
-        <span className="rating">{rating}</span>
-      </p>
-      <p className="genre">{genre}</p>
-      <p className="date-and-duration ">
-        <span className="highlight date">
-          {releaseDate}
-          {' '}
-        </span>
-year
-        <span className="highlight duration">
-          {duration}
-          {' '}
-        </span>
-min
-      </p>
-      <p className="description ">
-        {description}
-      </p>
-    </div>
-  </div>
-);
+  componentDidUpdate(prevProps) {
+    const prevId = prevProps.id;
+    const { id } = this.props;
+
+    if (prevId !== id) {
+      const { fetchData } = this.props;
+      fetchData(id);
+    }
+  }
+
+  render() {
+    const { curFilm } = this.props;
+    if (!curFilm) {
+      return 'loading';
+    }
+    return (
+      <div className="film-description row">
+
+        <img className="image-cover col-3" src={curFilm.imgPath} alt={curFilm.title} />
+        <div className="col-9">
+          <p className="film-description-block-title">
+            <span className="film-description-title">
+              {curFilm.title}
+              {' '}
+            </span>
+            <span className="rating">{curFilm.rating || '...'}</span>
+          </p>
+          <p className="genre">{curFilm.genre}</p>
+          <p className="date-and-duration ">
+            <span className="highlight date">
+              {curFilm.releaseDate}
+              {' '}
+            </span>
+  year
+            <span className="highlight duration">
+              {curFilm.duration}
+              {' '}
+            </span>
+            {curFilm.duration ? 'min' : ''}
+
+          </p>
+          <p className="description ">
+            {curFilm.description}
+          </p>
+        </div>
+      </div>
+    );
+  }
+}
 
 FilmDescription.propTypes = {
-  imgPath: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  duration: PropTypes.number,
-  releaseDate: PropTypes.string,
-  genre: PropTypes.string.isRequired,
-  rating: PropTypes.number,
+  fetchData: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  curFilm: PropTypes.shape({
+    imgPath: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    duration: PropTypes.number,
+    releaseDate: PropTypes.string,
+    genre: PropTypes.string.isRequired,
+    rating: PropTypes.number,
+  }),
 };
 
 FilmDescription.defaultProps = {
-  releaseDate: '',
-  rating: '',
-  duration: '',
+  curFilm: null,
+
 };
-export default FilmDescription;
+
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: (id) => dispatch(retrieveMovieById(id)),
+});
+
+const mapStateToProps = (state, ownProps) => ({
+  curFilm: state.curFilm,
+  id: Number(ownProps.match.params.id),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FilmDescription));

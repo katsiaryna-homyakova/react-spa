@@ -1,15 +1,20 @@
 import React from 'react';
 import './filmCard.scss';
 import PropTypes from 'prop-types';
+import {
+  Link,
+} from 'react-router-dom';
 
 const FilmCard = ({
-  imgPath, title, releaseDate, genre, rating,
+  id, imgPath, title, releaseDate, genre, rating,
 }) => (
   <div className="film-card">
-    <img className="card-img-top" src={imgPath} alt={title} />
+    <Link to={`/film/${id}`}>
+      <img className="card-img-top" src={imgPath} alt={title} />
+    </Link>
     <div className="card-body row">
       <p className="col">
-        <span className="card-title">{title}</span>
+        <span className="card-title"><Link to={`/film/${id}`}>{title}</Link></span>
         <span className="text">{genre}</span>
       </p>
       <p className="col ">
@@ -21,6 +26,7 @@ const FilmCard = ({
 );
 
 FilmCard.propTypes = {
+  id: PropTypes.number.isRequired,
   imgPath: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   releaseDate: PropTypes.string,
