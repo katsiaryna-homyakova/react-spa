@@ -2,62 +2,55 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HeaderSection from './components/headerSection/headerSection';
 import ConnectedSearch from './components/search/search';
-import FilmDescription from './components/filmDescription/filmDescription';
+import WrappedFilmDescription from './components/filmDescription/filmDescription';
 import ConnectedResultsContainer from './components/resultContainer/resultContainer';
 
 import ErrorBoundary from './components/errorBoundry/errorBoundry';
 import './styles/app.scss';
 import Footer from './components/footer/footer';
+import NotFound from './components/notFound/notFound';
 import configureStore from './redux/store';
-
+import * as Constants from './constants';
 
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
-
-const states = ['index', 'filmDescription'];
-// choose from states
-const curState = states[0];
-
-const curFilm = {
-  imgPath: 'src/images/header.jpg',
-  title: 'First title',
-  genre: 'Animation',
-  releaseDate: '1998',
-  rating: 10,
-  duration: 123,
-  description: 'Best of the best filn we\'ve ever seen. 100% recommended to see. Enjoy!',
-};
-const {
-  imgPath, title, genre, releaseDate, rating, duration, description,
-} = curFilm;
-const dataDisplay = {
-  index: <ConnectedSearch />,
-  filmDescription: <FilmDescription
-    imgPath={imgPath}
-    title={title}
-    genre={genre}
-    releaseDate={releaseDate}
-    duration={duration}
-    rating={rating}
-    description={description}
-  />,
-};
 const store = configureStore();
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Router>
+    <Provider store={store}>
+      <ErrorBoundary>
+        <Switch>
+          <Route exact path={Constants.ALL_PAGES}>
+            <HeaderSection>
+              <Switch>
+                <Route
+                  path={Constants.FILM_DESCRIPTION_PAGE}
+                  render={(props) => (
+                    <WrappedFilmDescription locaation={props.location} />
+                  )}
+                />
+                <Route path={Constants.LANDING_PAGE}>
+                  <ConnectedSearch />
+                </Route>
+              </Switch>
+            </HeaderSection>
+            <ConnectedResultsContainer />
 
-    <ErrorBoundary>
-
-      <HeaderSection>{dataDisplay[curState]}</HeaderSection>
-      <ConnectedResultsContainer />
-      <Footer />
-    </ErrorBoundary>
-  </Provider>,
+            <Footer />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </ErrorBoundary>
+    </Provider>
+  </Router>,
   document.querySelector('#root'),
 );

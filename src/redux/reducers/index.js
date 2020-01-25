@@ -1,5 +1,6 @@
 import {
-  SEARCH, ITEMS_FETCH_DATA_SUCCESS, SET_SORTING, MODIFY_CUR_SEARCH_TEXT, MODIFY_CUR_SEARCH_FILTER,
+  SEARCH, ITEMS_FETCH_DATA_SUCCESS, SET_SORTING, MODIFY_CUR_SEARCH_TEXT,
+  MODIFY_CUR_SEARCH_FILTER, ITEM_FETCH_BY_ID_SUCCESS,
 } from '../actionTypes';
 
 const initialCurSearch = { text: '', filters: 'title' };
@@ -30,6 +31,12 @@ export default function (state = initialState, action) {
           text: state.searchBy.text,
           filters: state.searchBy.filter,
         },
+      };
+    }
+    case ITEM_FETCH_BY_ID_SUCCESS: {
+      return {
+        ...state,
+        curFilm: action.payload.curFilm,
       };
     }
     case SET_SORTING: {
