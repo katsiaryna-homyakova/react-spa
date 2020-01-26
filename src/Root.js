@@ -1,29 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {  Switch, Route } from 'react-router-dom';
 import HeaderSection from './components/headerSection/headerSection';
 import ConnectedSearch from './components/search/search';
-import WrappedFilmDescription from './components/filmDescription/filmDescription';
+import FilmDescription from './components/filmDescription/filmDescription';
 import ConnectedResultsContainer from './components/resultContainer/resultContainer';
 
 import ErrorBoundary from './components/errorBoundry/errorBoundry';
-import './styles/app.scss';
 import Footer from './components/footer/footer';
 import NotFound from './components/notFound/notFound';
-import configureStore from './redux/store';
+
 import * as Constants from './constants';
 
-import '@fortawesome/fontawesome-free/js/fontawesome';
-import '@fortawesome/fontawesome-free/js/solid';
-import '@fortawesome/fontawesome-free/js/regular';
-import '@fortawesome/fontawesome-free/js/brands';
+import 'isomorphic-fetch';
+import 'babel-polyfill';
 
-const store = configureStore();
+const Root = ({
+    Router, location, context, store,
+  }) => (
 
-ReactDOM.render(
-  <Router>
+  <Router location={location} context={context}>
     <Provider store={store}>
       <ErrorBoundary>
         <Switch>
@@ -33,7 +30,7 @@ ReactDOM.render(
                 <Route
                   path={Constants.FILM_DESCRIPTION_PAGE}
                   render={(props) => (
-                    <WrappedFilmDescription locaation={props.location} />
+                    <FilmDescription location={location} />
                   )}
                 />
                 <Route path={Constants.LANDING_PAGE}>
@@ -51,6 +48,8 @@ ReactDOM.render(
         </Switch>
       </ErrorBoundary>
     </Provider>
-  </Router>,
-  document.querySelector('#root'),
+  </Router>
 );
+
+
+export default Root;
