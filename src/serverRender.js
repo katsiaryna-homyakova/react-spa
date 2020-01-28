@@ -47,10 +47,22 @@ function renderHTML(html, preloadedState) {
           store={store}
         />
       );
+ //почему не работает done вместо toPromise????
+      store.runSaga().toPromise().then(() => {
+        const htmlString = renderToString(renderRoot());
   
-      const htmlString = renderToString(renderRoot());
+  
+  
         const preloadedState = store.getState();
-      res.send(renderHTML(htmlString, preloadedState));
-    };
+  
+        res.send(renderHTML(htmlString, preloadedState));
+      });
+
+    // Do first render, starts initial actions.
+    renderToString(renderRoot());
+    // When the first render is finished, send the END action to redux-saga.
+    store.close();
+  
+  };
   }
   

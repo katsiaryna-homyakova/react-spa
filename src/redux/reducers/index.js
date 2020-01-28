@@ -1,7 +1,11 @@
+import { all } from 'redux-saga/effects';
 import {
   SEARCH, ITEMS_FETCH_DATA_SUCCESS, SET_SORTING, MODIFY_CUR_SEARCH_TEXT,
   MODIFY_CUR_SEARCH_FILTER, ITEM_FETCH_BY_ID_SUCCESS,
 } from '../actionTypes';
+import {
+  actionsSaga,
+} from '../actions';
 
 const initialCurSearch = { text: '', filters: 'title' };
 
@@ -12,7 +16,8 @@ const initialState = {
   sortResultsBy: 'releaseDate',
 };
 
-export default function (state = initialState, action) {
+
+const rootReducer =  function (state = initialState, action) {
   switch (action.type) {
     case SEARCH: {
       return {
@@ -62,3 +67,14 @@ export default function (state = initialState, action) {
       return state;
   }
 }
+
+function* rootSaga() {
+  yield all([
+    actionsSaga()
+  ]);
+}
+
+export {
+  rootReducer,
+  rootSaga,
+};

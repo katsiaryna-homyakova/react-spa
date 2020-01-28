@@ -8,7 +8,7 @@ import {
 import { retrieveMovieById } from '../../redux/actions';
 
 export class FilmDescription extends Component {
-  componentDidMount() {
+  componentWillMount() {
     const { fetchData, id } = this.props;
     fetchData(id);
   }

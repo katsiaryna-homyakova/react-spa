@@ -16,7 +16,7 @@ export class ResultsContainer extends Component {
     ];
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { fetchData } = this.props;
     fetchData();
   }
