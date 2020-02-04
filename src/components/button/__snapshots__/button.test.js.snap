@@ -5,7 +5,6 @@ initialize {
   "0": Object {
     "attribs": Object {
       "class": "btn some classes",
-      "id": "",
       "type": "button",
     },
     "children": Array [
@@ -39,12 +38,10 @@ initialize {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
-      "id": undefined,
       "type": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
-      "id": undefined,
       "type": undefined,
     },
   },
